@@ -1,9 +1,21 @@
 function amountSmall(){
     return{
+        buy: false,
        amount : 0,
        medAmount : 0,
        lrgAmount :0,
        totalCosts : 0,
+
+        buyPizza(){
+        if(this.buy  == true){
+        this.amount = 49
+        this.totalCosts = 49
+        }
+// if(this.buy  == true){
+// this.medAmount=89
+// this.totalCosts=89
+// }
+},
        incrementSmall() {
           this.amount += 49.00;
           this.totalCosts += 49
@@ -34,6 +46,11 @@ function amountSmall(){
              this.totalCosts -= 129
           }
        },
+       payment(){
+        if(this.totalCosts> 0){
+            
+        }
+       }
     }
  }
  document.addEventListener('alpine:init', ()=> {

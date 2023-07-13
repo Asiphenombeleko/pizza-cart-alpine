@@ -1,88 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Perfect Pizza</title>
-   <link rel="stylesheet" href="style.css">
-   <script src="//unpkg.com/alpinejs" defer></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfect Pizza</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="//unpkg.com/alpinejs" defer></script>
 </head>
+
 <body x-data="amountSmall">
-   <div class="Cart">
-      <h1>Perfect Pizza</h1>
-      <h3>Shopping Cart</h3>
-      <div>
-         <label id="small">Small Pizza <button class="plusSmall" @click="incrementSmall()">+</button>
-            <button class="minusSmall" @click="decrementSmall"> - </button>
-            <strong x-text="amount"></strong><label>
-      </div>
-      <div>
-         <label id="medium">Medium Pizza <button class="plusMedium" @click="incrementMedium()">+</button>
-            <button class="minusMedium" @click="decrementMedium()"> - </button>
-            <strong x-text="medAmount"></strong><label>
-      </div>
-      <div>
-         <label for="">Large Pizza <button class="plusLarge" @click="incrementLarge()">+</button>
-            <button class="minusLarge" @click="decrementLarge()"> - </button>
-            <strong x-text="lrgAmount"></strong><label>
-      </div>
-      <div>
-         <label id="total">Total Cost <strong x-text="totalCosts"></strong></label>
-      </div>
-      <div>
-         <label id="payment">
-         </label>
-         Payment Amount <input type="text">
-      </div>
-      <div>
-         <button x-model="amount">Pay</button>
-      </div>
-   </div>
-   </div>
-   </div>
-   </div>
-   <div class="pizza">
-      <div class="small_pizza pizzas">
-         <h2>Small Pizza</h2>
-         <div>
-            <img src="pizza-one.png" width="100">
-         </div>
-         <h3>R49.00
-         </h3>
-         <div>
-            <p> The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested</p>
-         </div>
-         <div x-model="amount"><button>Buy</button></div>
-      </div>
-      <div class="medium_pizza pizzas">
-         <h2>Medium Pizza</h2>
-         <div>
-            <img src="pizza-one.png" width="130">
-         </div>
-         <h3>R89.00</h3>
-         <div>
-            <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested</p>
-         </div>
-         <div x-model="amount"><button>Buy</button></div>
-      </div>
-      <div class="large_pizza pizzas">
-         <h2>Large Pizza</h2>
-         <div>
-            <img src="pizza-one.png" width="150">
-         </div>
-         <h3>R129.00</h3>
-         <div>
-            <p> The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested
-            </p>
-         </div>
-         <div x-model="amount"><button>Buy</button></div>
-      </div>
-   </div>
-   <div class="contact_us pizzas">
-      <h2>contact details</h2>
-      contact us at :011 987 2495 info@perfectpizza.co.za
-   </div>
-   <script src="pizza.js"></script>
+    <div class="Cart">
+        <h1>Perfect Pizza</h1>
+        <h3>Shopping Cart</h3>
+        <div>
+            <label id="small">Small Pizza <button class="plusSmall" @click="incrementSmall()">+</button>
+                <button class="minusSmall" @click="decrementSmall"> - </button>
+                <strong x-text="amount.toFixed(2)"></strong><label>
+        </div>
+        <div>
+            <label id="medium">Medium Pizza <button class="plusMedium" @click="incrementMedium()">+</button>
+                <button class="minusMedium" @click="decrementMedium()"> - </button>
+                <strong x-text="medAmount.toFixed(2)"></strong><label>
+        </div>
+        <div>
+            <label for="">Large Pizza <button class="plusLarge" @click="incrementLarge()">+</button>
+                <button class="minusLarge" @click="decrementLarge()"> - </button>
+                <strong x-text="lrgAmount.toFixed(2)"></strong><label>
+        </div>
+        <div>
+            <label id="total">Total Cost: <strong x-text="totalCosts.toFixed(2)"></strong></label>
+        </div>
+        <div>
+            <label id="payment">
+            </label>
+            Payment Amount :<input type="text">
+        </div>
+        <div>
+            <button x-model="amount">Pay</button>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="pizza">
+        <div class="small_pizza pizzas">
+            <h2>Small Pizza</h2>
+            <div>
+                <img src="pizza-one.png" width="100">
+            </div>
+            <h3>R49.00
+            </h3>
+            <div>
+                <p> The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested</p>
+            </div>
+            <div x-on:click="buy=true; buyPizza()"><button>Order</button></div>
+        </div>
+        <div class="medium_pizza pizzas">
+            <h2>Medium Pizza</h2>
+            <div>
+                <img src="pizza-one.png" width="130">
+            </div>
+            <h3>R89.00</h3>
+            <div>
+                <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested</p>
+            </div>
+            <div x-on:click="incrementMedium"><button>Order</button></div>
+        </div>
+        <div class="large_pizza pizzas">
+            <h2>Large Pizza</h2>
+            <div>
+                <img src="pizza-one.png" width="150">
+            </div>
+            <h3>R129.00</h3>
+            <div>
+                <p> The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested
+                </p>
+            </div>
+            <div x-on:click="incrementLarge"><button>Order</button></div>
+        </div>
+    </div>
+    <div class="contact_us pizzas">
+        <h2>contact details</h2>
+        contact us at :011 987 2495 info@perfectpizza.co.za
+    </div>
+    <script src="pizza.js"></script>
 </body>
+
 </html>
