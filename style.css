@@ -1,59 +1,60 @@
 button {
-    padding: 1em;
-    margin: 1em;
-    border-radius: 2em;
-  }
-.totalcost{
-    padding-bottom: 1em;
+  padding: 1em;
+  margin: 1em;
+  border-radius: 2em;
+}
+.totalcost {
+  padding-bottom: 1em;
 }
 .pizzas {
-    border: 1px solid #C5235E;
-    padding: 5em;
-    margin: 1em;
-    border-radius: 5em;
-    margin: bottom 0.5em;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-align: center;
+  border: 1px solid #c5235e;
+  padding: 3em;
+  margin: 1em;
+  border-radius: 5em;
+  margin: bottom 0.5em;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
-.Cart{
-    text-align: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #680B2D;
-    margin: 1em;
-    border-radius: 5em;
-    background-color: #DA3571;
-    margin: bottom 0.5em;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+.Cart {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #d1bfc6;
+  margin: 1em;
+  border-radius: 5em;
+  background-color: #f5e5eb;
+  margin: bottom 0.5em;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 .medium_pizza {
-    background-color: #F9D6E3;
-flex:2.5
+  background-color: #f9d6e3;
+  flex: 3;
 }
 img {
-    border-radius: 40em;
+  border-radius: 2em;
 }
 .small_pizza {
-    background-color: #DA97AF;
-    flex:1
+  background-color: #e7cfd8;
+  flex: 3;
 }
 .large_pizza {
-    background-color: #FD87B3;
-    flex:3
+  background-color: #e6c7d2;
+  flex: 3;
 }
 .contact_us {
-    background-color: #F84F8D;
+  background-color: #e2c2ce;
 }
-@media(min-width: 760px) {
-    body {
-        background-color: #B995A3;
-    }
+@media (min-width: 760px) {
+  body {
+    background-color: #b995a3;
+  }
 }
-@media(min-width: 960px) {
-    body {
-        background-color: rgb(16, 132, 132);
-    }
-    .pizza {
-        display: flex;
-    }
+@media (min-width: 960px) {
+  body {
+    background-color: rgb(204, 212, 212);
+  }
+  .pizza {
+    display: flex;
+  }
 }

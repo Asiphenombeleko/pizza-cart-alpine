@@ -15,30 +15,31 @@
         <h1>Perfect Pizza</h1>
         <h3>Shopping Cart</h3>
         <div>
-            <label id="small">Small Pizza <button class="plusSmall" @click="incrementSmall()">+</button>
-                <button class="minusSmall" @click="decrementSmall"> - </button>
-                <strong x-text="amount.toFixed(2)"></strong><label>
+            <span >Small Pizza<button  class="plusSmall" @click="incrementSmall()">+</button>
+                <button class="minusSmall" @click="decrementSmall()"> - </button> R<strong x-text="amount.toFixed(2)"></strong></span>
+            
+        </div>
+        <div >
+            <span>Medium Pizza <button class="plusMedium" @click="incrementMedium()">+</button>
+                <button class="minusMedium" @click="decrementMedium()"> - </button>R
+                <strong x-text="medAmount.toFixed(2)"></strong><span>
         </div>
         <div>
-            <label id="medium">Medium Pizza <button class="plusMedium" @click="incrementMedium()">+</button>
-                <button class="minusMedium" @click="decrementMedium()"> - </button>
-                <strong x-text="medAmount.toFixed(2)"></strong><label>
+            <span for="">Large Pizza <button class="plusLarge" @click="incrementLarge()">+</button>
+                <button class="minusLarge" @click="decrementLarge()"> - </button>R
+                <strong x-text="lrgAmount.toFixed(2)"></strong><span>
         </div>
         <div>
-            <label for="">Large Pizza <button class="plusLarge" @click="incrementLarge()">+</button>
-                <button class="minusLarge" @click="decrementLarge()"> - </button>
-                <strong x-text="lrgAmount.toFixed(2)"></strong><label>
+            <span id="total">Total Cost: R<strong x-text="totalCosts.toFixed(2)"></strong></span>
+        </div>
+        <!-- <div x-text="paid()"></div>
+        <div x-text=""></div> -->
+        <div>
+            
+            Payment Amount :<input type="text" x-model="payAmount">
         </div>
         <div>
-            <label id="total">Total Cost: <strong x-text="totalCosts.toFixed(2)"></strong></label>
-        </div>
-        <div>
-            <label id="payment">
-            </label>
-            Payment Amount :<input type="text">
-        </div>
-        <div>
-            <button x-model="amount">Pay</button>
+            <button @click="payment()">Pay</button>
         </div>
     </div>
     </div>
@@ -48,37 +49,37 @@
         <div class="small_pizza pizzas">
             <h2>Small Pizza</h2>
             <div>
-                <img src="pizza-one.png" width="100">
+                <img src="pizza.png" width="300">
             </div>
             <h3>R49.00
             </h3>
             <div>
                 <p> The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested</p>
             </div>
-            <div x-on:click="buy=true; buyPizza()"><button>Order</button></div>
+            <div x-on:click="incrementSmall()"><button>Order</button></div>
         </div>
         <div class="medium_pizza pizzas">
             <h2>Medium Pizza</h2>
             <div>
-                <img src="pizza-one.png" width="130">
+                <img src="pizza.png" width="300">
             </div>
             <h3>R89.00</h3>
             <div>
                 <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested</p>
             </div>
-            <div x-on:click="incrementMedium"><button>Order</button></div>
+            <div x-on:click="incrementMedium()"><button>Order</button></div>
         </div>
         <div class="large_pizza pizzas">
             <h2>Large Pizza</h2>
             <div>
-                <img src="pizza-one.png" width="150">
+                <img src="pizza.png" width="300">
             </div>
             <h3>R129.00</h3>
             <div>
                 <p> The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested
                 </p>
             </div>
-            <div x-on:click="incrementLarge"><button>Order</button></div>
+            <div x-on:click="incrementLarge()"><button>Order</button></div>
         </div>
     </div>
     <div class="contact_us pizzas">
