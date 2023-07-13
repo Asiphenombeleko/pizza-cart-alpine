@@ -1,0 +1,59 @@
+button {
+    padding: 1em;
+    margin: 1em;
+    border-radius: 2em;
+  }
+.totalcost{
+    padding-bottom: 1em;
+}
+.pizzas {
+    border: 1px solid #C5235E;
+    padding: 5em;
+    margin: 1em;
+    border-radius: 5em;
+    margin: bottom 0.5em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.Cart{
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #680B2D;
+    margin: 1em;
+    border-radius: 5em;
+    background-color: #DA3571;
+    margin: bottom 0.5em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.medium_pizza {
+    background-color: #F9D6E3;
+flex:2.5
+}
+img {
+    border-radius: 40em;
+}
+.small_pizza {
+    background-color: #DA97AF;
+    flex:1
+}
+.large_pizza {
+    background-color: #FD87B3;
+    flex:3
+}
+.contact_us {
+    background-color: #F84F8D;
+}
+@media(min-width: 760px) {
+    body {
+        background-color: #B995A3;
+    }
+}
+@media(min-width: 960px) {
+    body {
+        background-color: rgb(16, 132, 132);
+    }
+    .pizza {
+        display: flex;
+    }
+}
