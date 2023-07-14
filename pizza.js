@@ -74,7 +74,10 @@ function amountSmall() {
        this.message = "Payment successful!! Your change is "+ "R"+ this.change.toFixed(2);
       } else if (this.payAmount < this.totalCosts) {
       this.message = "Funds not enough for the purchase!";
-      } else{
+      } else if(this.totalCosts == 0){
+         this.message = "Please add a pizza to the cart!!"
+      }
+      else{
 
          this.message = "Paid with no change";
       }
