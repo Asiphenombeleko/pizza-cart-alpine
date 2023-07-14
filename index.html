@@ -15,11 +15,12 @@
         <h1>Perfect Pizza</h1>
         <h3>Shopping Cart</h3>
         <div>
-            <span >Small Pizza<button  class="plusSmall" @click="incrementSmall()">+</button>
-                <button class="minusSmall" @click="decrementSmall()"> - </button> R<strong x-text="amount.toFixed(2)"></strong></span>
-            
+            <span>Small Pizza<button class="plusSmall" @click="incrementSmall()">+</button>
+                <button class="minusSmall" @click="decrementSmall()"> - </button> R<strong
+                    x-text="amount.toFixed(2)"></strong></span>
+
         </div>
-        <div >
+        <div>
             <span>Medium Pizza <button class="plusMedium" @click="incrementMedium()">+</button>
                 <button class="minusMedium" @click="decrementMedium()"> - </button>R
                 <strong x-text="medAmount.toFixed(2)"></strong><span>
@@ -32,15 +33,22 @@
         <div>
             <span id="total">Total Cost: R<strong x-text="totalCosts.toFixed(2)"></strong></span>
         </div>
-        <!-- <div x-text="paid()"></div>
-        <div x-text=""></div> -->
-        <div>
-            
-            Payment Amount :<input type="text" x-model="payAmount">
+
+        <div x-show="message != ''" x-transition class="messageHolder">
+
+            <div x-text="message"></div>
         </div>
-        <div>
+
+
+
+
+        <div x-show="showPay == true">
+
+            Payment Amount :<input type="text" x-model="payAmount">
             <button @click="payment()">Pay</button>
         </div>
+
+        <div x-show="showCheckout == true"><button @click="toggleButtons()">Checkout</button></div>
     </div>
     </div>
     </div>

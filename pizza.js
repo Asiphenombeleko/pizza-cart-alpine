@@ -1,116 +1,102 @@
-function amountSmall(){
-    return{
-        buy: false,
-        buyMed : false,
-        buyLrg : false,
-       amount : 0,
-       medAmount : 0,
-       lrgAmount :0,
-       totalCosts : 0,
-       payAmount :"",
+function amountSmall() {
+  return {
+    buy: false,
+    buyMed: false,
+    buyLrg: false,
+    amount: 0,
+    medAmount: 0,
+    lrgAmount: 0,
+    totalCosts: 0,
+    change : 0,
+    payAmount: 0,
+    message: "",
+    showCheckout: true,
+    showPay: false,
 
-   //      buyPizza(){
-   //      if(this.buy  == true){
-   //      this.amount += 49
-   //      this.totalCosts += 49
-        
-   //      }
-   //      if(this.buyMed== true){
-   //       this.medAmount = 89
-   //       this.totalCosts = 89
-   //      }
-   //      if(this.buyLrg == true){
-   //       this.lrgAmount = 129
-   //       this.totalCosts = 129
-   //      }
-   // },
-       incrementSmall() {
-      
-            this.amount += 49.00;
-            this.totalCosts += 49
+    incrementSmall() {
+      this.amount += 49.0;
+      this.totalCosts += 49;
+    },
+    decrementSmall() {
+      if (this.amount > 0) {
+        this.amount -= 49.0;
+        this.totalCosts -= 49;
+      }
+    },
+    incrementMedium() {
+      this.medAmount += 89.0;
+      this.totalCosts += 89;
+    },
+    decrementMedium() {
+      if (this.medAmount > 0) {
+        this.medAmount -= 89.0;
+        this.totalCosts -= 89;
+      }
+    },
+    incrementLarge() {
+      this.lrgAmount += 129.0;
+      this.totalCosts += 129;
+    },
+    decrementLarge() {
+      if (this.lrgAmount > 0) {
+        this.lrgAmount -= 129.0;
+        this.totalCosts -= 129;
+      }
+    },
+
+    payment() {
+       this.paid()
+      if(!isNaN(this.payAmount)){
+      if (this.payAmount > this.totalCosts) {
+        this.totalCosts = 0;
+        this.payAmount = 0;
+        this.amount = 0;
+        this.medAmount = 0;
+        this.lrgAmount = 0;
+      } else if (this.payAmount >= this.totalCosts) {
+        this.totalCosts = 0;
+        this.payAmount = 0;
+        this.amount = 0;
+        this.medAmount = 0;
+        this.lrgAmount = 0;
+      } }
+      else {
          
-       },
-       decrementSmall(){
-          if(this.amount > 0){
-             this.amount-= 49.00
-             this.totalCosts -= 49
-          }
-       },
-       incrementMedium(){
-         
-            this.medAmount += 89.00;
-            this.totalCosts += 89
-         
-       },
-       decrementMedium(){
-          if(this.medAmount > 0){
-             this.medAmount -= 89.00
-             this.totalCosts -= 89
-          }
-       },
-       incrementLarge(){
-         
+      }
+      this.toggleButtons()
+    },
+    paid() {
+     if (isNaN(this.payAmount)){
+      this.message = "Please enter numerical values!!"
+     }
+      else if (this.payAmount > this.totalCosts) {
+        this.change = this.payAmount - this.totalCosts
+       this.message = "Payment successful!! Your change is "+ "R"+ this.change.toFixed(2);
+      } else if (this.payAmount < this.totalCosts) {
+      this.message = "Funds not enough for the purchase!";
+      } else{
 
-            this.lrgAmount += 129.00
-            this.totalCosts += 129
-         
-       },
-       decrementLarge(){
-          if(this.lrgAmount > 0){
-             this.lrgAmount -= 129.00
-             this.totalCosts -= 129
-          }
-       },
+         this.message = "Paid with no change";
+      }
+      const myTimeout = setTimeout(()=>{
+         this.message = ""
+      }, 5000);
+    },
+    toggleButtons() {
+      if (this.showPay == true) {
+        this.showPay = false;
+      } else {
+        this.showPay = true;
+      }
+      if (this.showCheckout == true) {
+        this.showCheckout = false;
+      } else {
+        this.showCheckout = true;
+      }
+    },
+  };
+}
 
-       payment(){
-        if(this.payAmount>this.totalCosts){
-            this.totalCosts =0;
-            this.payAmount = 0.
-            this.amount = 0;
-            this.medAmount = 0;
-            this.lrgAmount = 0;
-
-        }
-        else if(this.payAmount >= this.totalCosts){
-         this.totalCosts =0;
-         this.payAmount = 0
-         this.amount = 0;
-         this.medAmount = 0;
-         this.lrgAmount = 0;
-         
-
-        }
-        else{
-         this.totalCosts =0;
-         this.payAmount = 0
-         this.amount = 0;
-         this.medAmount = 0;
-         this.lrgAmount = 0;
-
-        }
-       },
-       paid(){
-         if(this.payAmount>this.totalCosts){
-            return "Payment successful!! "
-         }
-       },
-       notEnough(){
-         if(this.payAmount<this.totalCosts){
-            return "Funds not enough for the purchase!"
-         }
-       },
-       exactly(){
-         if(this.payAmount== this.totalCosts){
-            return "Paid with no change"
-         }
-       }
-    }
- }
-
-
-
-
-
- document.addEventListener('alpine:init', ()=> {
-    Alpine.data('amountSmall',amountSmall)
- })
+document.addEventListener("alpine:init", () => {
+  Alpine.data("amountSmall", amountSmall);
+});
